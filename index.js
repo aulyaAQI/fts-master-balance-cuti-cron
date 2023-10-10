@@ -1,4 +1,6 @@
-require('dotenv').config({path:'/home/kuya/fts-master-balance-cuti-cron/.env'});
+// require('dotenv').config({path:'/home/kuya/fts-master-balance-cuti-cron/.env'});
+require('dotenv').config();
+const util = require('util');
 
 const log = require('./log');
 
@@ -6,7 +8,6 @@ const {generateRecordsBatch} = require('./calculation');
 const calculation = require('./calculation');
 
 (async () => {
-  console.log('hai');
   const records = await calculation.fetchAll();
 
   try {
@@ -17,7 +18,6 @@ const calculation = require('./calculation');
       for (let i = 0; i < updateBatch.length; i++) {
         try {
           const updResp = await calculation.update(updateBatch[i]);
-          console.log({updResp});
           log.store(updResp);
         } catch (error) {
           console.log({error});

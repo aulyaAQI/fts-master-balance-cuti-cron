@@ -1,5 +1,5 @@
-// require('dotenv').config({path:'/home/kuya/fts-master-balance-cuti-cron/.env'});
-require('dotenv').config();
+require('dotenv').config({path:'/home/kuya/fts-master-balance-cuti-cron/.env'}); //prod
+// require('dotenv').config(); //local
 const util = require('util');
 
 const log = require('./log');
